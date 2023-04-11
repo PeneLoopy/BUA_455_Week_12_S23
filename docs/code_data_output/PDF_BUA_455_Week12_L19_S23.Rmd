@@ -1,59 +1,32 @@
-<!DOCTYPE html>
-<html lang="" xml:lang="">
-  <head>
-    <title>BUA 455 - Week 12</title>
-    <meta charset="utf-8" />
-    <meta name="author" content="Penelope Pooler Eisenbies" />
-    <meta name="date" content="2023-04-11" />
-    <script src="docs_files/header-attrs/header-attrs.js"></script>
-    <link href="docs_files/panelset/panelset.css" rel="stylesheet" />
-    <script src="docs_files/panelset/panelset.js"></script>
-    <link href="docs_files/tile-view/tile-view.css" rel="stylesheet" />
-    <script src="docs_files/tile-view/tile-view.js"></script>
-    <script src="docs_files/xaringanExtra_fit-screen/fit-screen.js"></script>
-    <link href="docs_files/tachyons/tachyons.min.css" rel="stylesheet" />
-    <link href="docs_files/animate.css/animate.xaringan.css" rel="stylesheet" />
-    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
-  </head>
-  <body>
-    <textarea id="source">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-background-image: url("docs_files/images/sloth_faded.png")
-background-size: cover
-
-class: bottom, right
-
-## BUA 455 - Week 12
-
-### Expanding and Editing a Dashboard / Geo Part 2?
-
-&lt;br&gt;
-  
-  
-  #### Penelope Pooler Eisenbies
-  
-  #### 2023-04-11
-  
-  [Wikipedia Sloth Page](https://en.wikipedia.org/wiki/Sloth)
-
 ---
+title: "BUA 455 - Week 12 - L19"
+author: "Add full name here"
+date: '`r Sys.Date()`'
+output: pdf_document
+---
+
+```{r setup, include=TRUE}
+
+# this line specifies options for default options for all R Chunks
+knitr::opts_chunk$set(echo=T, 
+                      highlight=T)
+
+# suppress scientific notation
+options(scipen=100,
+        getSymbols.warning4.0 = FALSE)
+
+# install helper package (pacman), if needed
+if (!require("pacman")) install.packages("pacman", repos = "http://lib.stat.cmu.edu/R/CRAN/")
+
+# install and load required packages
+# pacman should be first package in parentheses and then list others
+pacman::p_load(pacman, tidyverse, ggthemes, magrittr, lubridate, tidyquant, highcharter,
+               flexdashboard,knitr, RColorBrewer, dygraphs, gridExtra)
+
+# verify packages (comment out in finished documents)
+p_loaded()
+
+```
 
 ### Announcements
   
@@ -75,6 +48,8 @@ class: bottom, right
 
 - This assignment ALSO ***requires writing thoughtful responses to questions*** (on Blackboard) and adding text to dashboard.
 
+<br>
+
 ***IMPORTANT:***
 
   - **Do NOT use Chat GPT or any AI engine to answer HW 5 - Part 2 Blackboard Short Answer Questions.** 
@@ -85,8 +60,6 @@ class: bottom, right
   
 ### Plan for This Week
 
-.pull-left[
-  
 - Today I will introduce HW 5 - Part 2
 
 - Thursday we will cover more on geographic data
@@ -95,19 +68,10 @@ class: bottom, right
 
   - Link to [R code that can be adapted to create interactive maps](https://plotly.com/ggplot2/geom_polygon/)
   
-]
-
-.pull-right[
-
-![](docs_files/images/owl.png)
-
-]
 
 ---
 
 ### Syllabus - Requested/Selected Topic 
-
-.pull-left[
 
 - There is time for one Requested/Selected Topic Next Thursday, 4/20
 
@@ -123,27 +87,19 @@ class: bottom, right
   
     - If appropriate, questions and answers will be included in the Week 13 Lectures 
 
-]
-
-.pull-right[
-
-![](docs_files/images/beaver.png)
-
-]
-
 ---
 
 ### Background for HW 5 - Part 2
 
 Syracuse University is currently developing **[Six University-wide Shared Competencies](https://effectiveness.syr.edu/shared-competencies/)**
 
-&lt;br&gt;
+<br>
 
 #### **From the website:**
 
 "Undergraduate students develop competencies through their major degree courses, liberal arts requirements, and co-curricular experiences."
 
-&lt;br&gt;
+<br>
 
 #### **Overall Goal of Shared Competencies:**
 
@@ -158,11 +114,11 @@ Syracuse University is currently developing **[Six University-wide Shared Compet
 
 - Technology Agility skills are prevalent in every assignment and task throughout the course.
 
-&lt;br&gt;
+<br>
 
 - Information literacy skills are primarily addressed in HW 5 - Part 2 and in the course project.
 
-&lt;br&gt;
+<br>
 
 - Essential Information Literacy Skills include 
 
@@ -182,7 +138,7 @@ Syracuse University is currently developing **[Six University-wide Shared Compet
 
   - You will be asked to compare and contrast these data visualization options.
 
-&lt;br&gt;
+<br>
   
 ### Review and New Skills for HW 5 and Project
   
@@ -195,8 +151,6 @@ Syracuse University is currently developing **[Six University-wide Shared Compet
 ---
 
 ### Skills for HW 5 - Part 2 and Project
-
-.pull-left[
 
 ### Adding linked text to Markdown Output
   
@@ -213,24 +167,13 @@ Syracuse University is currently developing **[Six University-wide Shared Compet
   - [Introduction to Data Science](https://rafalab.github.io/dsbook/)
 
 
-]
-
-.pull-right[
-
-![](docs_files/images/beaver.png)
-
-]
-
-
 ---
-
-.pull-left[
 
 ### Skills for HW 5 - Part 2 and Project
 
 #### Adding an image
 
-- This same format will work in Word, Powerpoint, Html, and Pdf output files
+- This same format will work in Word, PowerPoint, Html, and Pdf output files
 
 - Similar to adding linked text:
 
@@ -242,49 +185,7 @@ Syracuse University is currently developing **[Six University-wide Shared Compet
 
 NOTE: You can save and export an R data visualization, and then place that figure elsewhere in the document as .png or .jpg file separate from R code.
 
-]
-
-.pull-right[
-
 ![Cover of R for Data Science](Cover_Image_R_for_DS.png)
-
-]
-
----
-
-.pull-left[
-
-### Skills for HW 5 - Part 2 and Project
-
-#### Another way to include an image
-
-- An image can also be included by using the `include_graphics` command within a chunk.
-
-- In your dashboard, you can specify `echo=F` so the chunk will not appear.
-
-- Using the Chunk option may give you more control of image size.
-
-- Image shown is the default size, but it can be made smaller or larger with chunk options.
-
-  - Please let us know if you have questions about image sizes.
-
-
-```r
-knitr::include_graphics("Cover_Image_R_for_DS.png")
-```
-
-]
-
-
-.pull-right[
-
-&lt;img src="Cover_Image_R_for_DS.png" width="265" /&gt;
-
-
-
-]
-
-
 
 ---
 
@@ -309,7 +210,7 @@ knitr::include_graphics("Cover_Image_R_for_DS.png")
 
 ` citation() `
 
-&lt;br&gt;
+<br>
 
 - To cite R:
 
@@ -329,7 +230,7 @@ for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
 
 ` citation('tidyverse') `
 
-&lt;br&gt;
+<br>
 
 `tidyverse` suite include: 
 
@@ -337,7 +238,7 @@ for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
  
 `tidyr`   `tibble`  `ggplot2`  `tidyverse`  
 
-&lt;br&gt;
+<br>
 
 To cite `tidyverse`:
 
@@ -345,7 +246,7 @@ Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Ha
 Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D,
 Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to
 the tidyverse.” _Journal of Open Source Software_, *4*(43), 1686. doi:10.21105/joss.01686
-&lt;https://doi.org/10.21105/joss.01686&gt;.
+<https://doi.org/10.21105/joss.01686>.
 
 ---
 
@@ -353,27 +254,18 @@ the tidyverse.” _Journal of Open Source Software_, *4*(43), 1686. doi:10.21105
 
 #### Citing RStudio
 
-.pull-left[
-
 - type `RStudio.Version()` in the R console
 
 
 `RStudio.Version()`
 
-&lt;br&gt;
+<br>
 
 To cite RStudio:
 
 Posit team (2023). RStudio: Integrated Development Environment for R. Posit Software, PBC,
 Boston, MA. URL http://www.posit.co/.
 
-]
-
-.pull-right[
-
-![](docs_files/images/beaver.png)
-
-]
 
 ---
 
@@ -405,57 +297,48 @@ The small chunk that follows imports a dataset and does some of the data managem
 
 In a dashboard or report, this chunk could be hidden by including `echo = F` in the chunk header.
 
+```{r}
 
-```r
 # import and manage data to keep top movies from each year
-bom_yr &lt;- read_csv("bom_yearly_top_gross_2023_04_10.csv", show_col_types = F, skip=12) |&gt;
-  filter(!is.na(Releases)) |&gt;                              # remove rows with NAs
-  slice(1:14) |&gt;                                           # keep first 14 rows
-  rename("yr"="Year", "tot_gross" = "Total Gross", "num1" = "#1 Release") |&gt;
-  select(yr, tot_gross, num1) |&gt;
+bom_yr <- read_csv("bom_yearly_top_gross_2023_04_10.csv", show_col_types = F, skip=12) |>
+  filter(!is.na(Releases)) |>                              # remove rows with NAs
+  slice(1:14) |>                                           # keep first 14 rows
+  rename("yr"="Year", "tot_gross" = "Total Gross", "num1" = "#1 Release") |>
+  select(yr, tot_gross, num1) |>
   mutate(yr = as.integer(yr),
          tot_gross = gsub("$", "", tot_gross, fixed = T),
          tot_gross = as.numeric(gsub(",", "", tot_gross, fixed = T))) 
 
 # create variables for inline code
-today &lt;- Sys.Date()                                                # saves today's date
-today_fmt &lt;- stamp("Saturday, January 1, 1999", quiet = T)(today)  # formats date
-# day_updated_fmt &lt;- 
+today <- Sys.Date()                                                # saves today's date
+today_fmt <- stamp("Saturday, January 1, 1999", quiet = T)(today)  # formats date
+# day_updated_fmt <- 
 
-yr_to_date_gross &lt;- round(bom_yr$tot_gross[1]/1000000000,2)        # formats &amp; saves 1st gross
-pct_of_prev &lt;- round(bom_yr$tot_gross[1]/bom_yr$tot_gross[2]*100)  # creates formatted ratio 
+yr_to_date_gross <- round(bom_yr$tot_gross[1]/1000000000,2)        # formats & saves 1st gross
+pct_of_prev <- round(bom_yr$tot_gross[1]/bom_yr$tot_gross[2]*100)  # creates formatted ratio 
 
-# tenyr_pp_avg &lt;- 
-# pct_of_tenyr_pp_avg &lt;- 
+# tenyr_pp_avg <- 
+# pct_of_tenyr_pp_avg <- 
+
 ```
 
 ---
   
 ###  R Inline Code Example
 
-.pull-left[
-
 - In a polished document, the previous chunk could be hidden, by using the `echo=F` option in the chunk header.
 
 - The document itself could have the following text which could be updated daily:
 
-&lt;br&gt;
+<br>
 
-As of Tuesday, April 11, 2023, the top grossing film of this year is *Avatar: The Way of Water*.  
+As of `r today_fmt`, the top grossing film of this year is *`r bom_yr$num1[1]`*.  
 
-So far this year, the domestic total movie gross is 2.09 billion dollars.  
+So far this year, the domestic total movie gross is `r yr_to_date_gross` billion dollars.  
 
-This total is 28% of last year's total domestic movie gross.
+This total is `r pct_of_prev`% of last year's total domestic movie gross.
 
 
-]
-
-.pull-right[
-
-![](docs_files/images/owl.png)
-
-]
-  
 
 ---
 
@@ -477,12 +360,13 @@ This total is 28% of last year's total domestic movie gross.
 **`4.`** Rename final pdf file with your full name and add your name to file header and then submit it.
 
   
-- As of Tuesday, April 11, 2023, the top grossing film of this year is *Avatar: The Way of Water*.     
-- So far this year, the domestic total movie gross is 2.09 billion dollars.     
-- This total is 28% of last year's total domestic movie gross.  
-- This total is `_____`% of the pre-pandemic ten-year average of domestic annual gross.   
+- As of `r today_fmt`, the top grossing film of this year is *`r bom_yr$num1[1]`*.     
+- So far this year, the domestic total movie gross is `r yr_to_date_gross` billion dollars.     
+- This total is `r pct_of_prev`% of last year's total domestic movie gross.  
+- This total is `_____`% of the pre-pandemic ten-year average of domestic annual gross.     
 - These box office data were last updated on `_____` and can be [accessed at this link]().    
-  
+
+<br>
 
 Here is the data link: `https://www.boxofficemojo.com/year/?ref_=bo_nb_hm_secondarytab`
 
@@ -491,15 +375,8 @@ Here is the data link: `https://www.boxofficemojo.com/year/?ref_=bo_nb_hm_second
 
 ---
 
-background-image: url("docs_files/images/tired_panda_faded.png")
-background-size: cover
-
-.pull-left[
-  
 ### **Key Points from Today**
   
-.bg-azure.b--dark_cyan.ba.bw2.br3.shadow-5.ph2[
-    
 - **Introduction of HW 5 - Part 2**
 
   - Due Wednesday 4/19/23
@@ -519,156 +396,9 @@ background-size: cover
   - Ideal for updating data information efficiently
   - In-class exercise to practice
     
-  ]
-  
-]
 
-.pull-right[
+<br>
 
-
-.bg-azure.b--dark_cyan.ba.bw2.br3.shadow-5.ph3[
 You may submit an 'Engagement Question' about each lecture until midnight on the day of the lecture. **A minimum of four submissions are required during the semester.**
-]
-
-]
 
 
-    </textarea>
-<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
-<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script>var slideshow = remark.create({
-"slideNumberFormat": "%current%/%total%",
-"highlightStyle": "tomorrow-night-bright",
-"highlightLines": true,
-"ratio": "16:9",
-"countIncrementalSlides": true,
-"keep_md": true
-});
-if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
-  window.dispatchEvent(new Event('resize'));
-});
-(function(d) {
-  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
-  if (!r) return;
-  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
-  d.head.appendChild(s);
-})(document);
-
-(function(d) {
-  var el = d.getElementsByClassName("remark-slides-area");
-  if (!el) return;
-  var slide, slides = slideshow.getSlides(), els = el[0].children;
-  for (var i = 1; i < slides.length; i++) {
-    slide = slides[i];
-    if (slide.properties.continued === "true" || slide.properties.count === "false") {
-      els[i - 1].className += ' has-continuation';
-    }
-  }
-  var s = d.createElement("style");
-  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
-  d.head.appendChild(s);
-})(document);
-// delete the temporary CSS (for displaying all slides initially) when the user
-// starts to view slides
-(function() {
-  var deleted = false;
-  slideshow.on('beforeShowSlide', function(slide) {
-    if (deleted) return;
-    var sheets = document.styleSheets, node;
-    for (var i = 0; i < sheets.length; i++) {
-      node = sheets[i].ownerNode;
-      if (node.dataset["target"] !== "print-only") continue;
-      node.parentNode.removeChild(node);
-    }
-    deleted = true;
-  });
-})();
-// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
-// screen reader (see PR #262)
-(function(d) {
-  let res = {};
-  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
-    const t = tr.querySelector('td:nth-child(2)').innerText;
-    tr.querySelectorAll('td:first-child .key').forEach(key => {
-      const k = key.innerText;
-      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
-    });
-  });
-  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
-})(document);
-(function() {
-  "use strict"
-  // Replace <script> tags in slides area to make them executable
-  var scripts = document.querySelectorAll(
-    '.remark-slides-area .remark-slide-container script'
-  );
-  if (!scripts.length) return;
-  for (var i = 0; i < scripts.length; i++) {
-    var s = document.createElement('script');
-    var code = document.createTextNode(scripts[i].textContent);
-    s.appendChild(code);
-    var scriptAttrs = scripts[i].attributes;
-    for (var j = 0; j < scriptAttrs.length; j++) {
-      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
-    }
-    scripts[i].parentElement.replaceChild(s, scripts[i]);
-  }
-})();
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
-
-<script>
-slideshow._releaseMath = function(el) {
-  var i, text, code, codes = el.getElementsByTagName('code');
-  for (i = 0; i < codes.length;) {
-    code = codes[i];
-    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-      text = code.textContent;
-      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-          /^\$\$(.|\s)+\$\$$/.test(text) ||
-          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-        code.outerHTML = code.innerHTML;  // remove <code></code>
-        continue;
-      }
-    }
-    i++;
-  }
-};
-slideshow._releaseMath(document);
-</script>
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-(function () {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
-  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
-    script.src  = script.src.replace(/^https?:/, '');
-  document.getElementsByTagName('head')[0].appendChild(script);
-})();
-</script>
-  </body>
-</html>

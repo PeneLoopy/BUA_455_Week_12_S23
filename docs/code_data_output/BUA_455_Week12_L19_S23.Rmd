@@ -1,6 +1,6 @@
 ---
-title: "BUA 455 - Week 12 - L19 - Expanding and Editing a Dashboard"
-author: "Penelope Pooler Eisenbies"
+title: "PDF - BUA 455 - Week 12 - L19"
+author: "Add your name here"
 date: '`r Sys.Date()`'
 output: 
   html_document: 
@@ -194,9 +194,9 @@ NOTE: You can save and export an R data visualization, and then place that figur
 
 ---
 
-### Skills for HW 5 - Part 2 and Project
+### Skills for HW 5 - Part 2 and Project 
 
-#### Another way to include an image
+#### Another way to include an image (not included in pdf)
 
 - An image can also be included by using the `include_graphics` command within a chunk.
 
@@ -389,9 +389,11 @@ This total is `r pct_of_prev`% of last year's total domestic movie gross.
    
    - Calculate the ratio of the current gross for 2022 divided by the ten year average, format ratio as was done for `pct_of_prev`, and save this ratio as `pct_of_tenyr_pp_age`
 
-**`2.`** Add more information to the text above, including two additional 'micro-chunks' of inline R code.  The full text section to be completed is shown below.
+**`2.`** Add more information to the text, including two additional 'micro-chunks' of inline R code.  The full text section to be completed is shown below.
 
-**`3.`** Knit your class notes (.Rmd) so that you have the final output as an html file and then save (print) it as a pdf and submit it.
+**`3.`** Re-knit the PDF version of your class notes (.Rmd) so that you have the final output as a pdf file.
+
+**`4.`** Rename final pdf file with your full name and add your name to file header and then submit it.
 
   
 - As of `r today_fmt`, the top grossing film of this year is *`r bom_yr$num1[1]`*.     

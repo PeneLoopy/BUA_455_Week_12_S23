@@ -577,18 +577,19 @@ This total is `r pct_of_prev`% of last year's total domestic movie gross.
    
    - Calculate the ratio of the current gross for 2022 divided by the ten year average, format ratio as was done for `pct_of_prev`, and save this ratio as `pct_of_tenyr_pp_age`
 
-**`2.`** Add more information to the text above, including two additional 'micro-chunks' of inline R code.  The full text section to be completed is shown below.
+**`2.`** Add more information to the text, including two additional 'micro-chunks' of inline R code.  The full text section to be completed is shown below.
 
-**`3.`** Knit your class notes (.Rmd) so that you have the final output as an html file and then save (print) it as a pdf and submit it.
+**`3.`** Re-knit the PDF version of your class notes (.Rmd) so that you have the final output as a pdf file.
+
+**`4.`** Rename final pdf file with your full name and add your name to file header and then submit it.
 
   
 - As of `r today_fmt`, the top grossing film of this year is *`r bom_yr$num1[1]`*.     
 - So far this year, the domestic total movie gross is `r yr_to_date_gross` billion dollars.     
 - This total is `r pct_of_prev`% of last year's total domestic movie gross.  
-- This total is `_____`% of the pre-pandemic ten-year average of domestic annual gross.     
+- This total is `_____`% of the pre-pandemic ten-year average of domestic annual gross.   
 - These box office data were last updated on `_____` and can be [accessed at this link]().    
-
-<br>
+  
 
 Here is the data link: `https://www.boxofficemojo.com/year/?ref_=bo_nb_hm_secondarytab`
 
