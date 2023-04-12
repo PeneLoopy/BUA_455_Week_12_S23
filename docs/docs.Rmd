@@ -1,6 +1,6 @@
 ---
-title: "BUA 455 - Week 12"
-subtitle: "Expanding and Editing a Dashboard / Geo Part 2?" 
+title: "BUA 455 - Week 12 - L19"
+subtitle: "Expanding and Editing a Dashboard" 
 author: "Penelope Pooler Eisenbies"
 date: '`r Sys.Date()`'
 output:
@@ -141,9 +141,9 @@ background-size: cover
 
 class: bottom, right
 
-## BUA 455 - Week 12
+## BUA 455 - Week 12 - L19
 
-### Expanding and Editing a Dashboard / Geo Part 2?
+### Expanding and Editing a Dashboard
 
 <br>
   
